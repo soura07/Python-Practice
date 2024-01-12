@@ -1,26 +1,19 @@
-def factorial(n) :
-	fact = 1
-	while (n != 0) :
-		fact = fact * n
-		n = n - 1
-	return fact
-def isKrishnamurthy(n) :
-	sum = 0
-	temp = n
-	while (temp != 0) :
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * factorial(n - 1)
 
-		rem = temp%10
-		sum = sum + factorial(rem)
+def isKrishnamurthy(n):
+    sum = 0
+    temp = n
 
+    while temp != 0:
+        rem = temp % 10
+        sum += factorial(rem)
+        temp //= 10
 
-		temp = temp // 10
-		
-	return (sum == n)
+    return sum == n
 
 n = 145
-if (isKrishnamurthy(n)) :
-	print("YES")
-else :
-	print("NO")
-
-
+print("YES" if isKrishnamurthy(n) else "NO")
